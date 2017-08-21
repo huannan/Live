@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="直播SDK Demo\n注意：6.0以上请允许所有权限申请"
+        android:textColor="#ff8c00"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="RTMP地址："/>
+
+        <!--android:text="rtmp://192.168.72.4/live/test"-->
+
+        <EditText
+            android:id="@+id/et_rtmp_url"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ems="200"
+            android:inputType="textUri"
+            android:text="rtmp://www.velab.com.cn/live/test"
+            android:textColor="#ff8c00"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_push"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="我是主播端（推流端）"/>
+
+    <Button
+        android:id="@+id/btn_pull"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="我是观众端（引流端）"/>
+
+</LinearLayout>

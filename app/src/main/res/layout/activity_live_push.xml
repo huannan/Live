@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <android.view.SurfaceView
+        android:id="@+id/sv_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"/>
+
+    <LinearLayout
+        android:id="@+id/adcontainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_push"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:text="开始直播"/>
+
+
+        <Button
+            android:id="@+id/btn_camera_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:alpha="0.5"
+            android:text="切换摄像头"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
