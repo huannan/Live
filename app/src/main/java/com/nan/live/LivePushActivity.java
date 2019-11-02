@@ -1,5 +1,6 @@
 package com.nan.live;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ public class LivePushActivity extends AppCompatActivity implements View.OnClickL
     private Button btn_push;
     private Button btn_camera_switch;
 
+    @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
@@ -40,15 +42,13 @@ public class LivePushActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_push);
-
-        sv_preview = (SurfaceView) findViewById(R.id.sv_preview);
-        btn_push = (Button) findViewById(R.id.btn_push);
-        btn_camera_switch = (Button) findViewById(R.id.btn_camera_switch);
-
         init();
     }
 
     private void init() {
+        sv_preview = (SurfaceView) findViewById(R.id.sv_preview);
+        btn_push = (Button) findViewById(R.id.btn_push);
+        btn_camera_switch = (Button) findViewById(R.id.btn_camera_switch);
         btn_push.setOnClickListener(this);
         btn_camera_switch.setOnClickListener(this);
 
@@ -80,5 +80,11 @@ public class LivePushActivity extends AppCompatActivity implements View.OnClickL
     public void onError(int code) {
         //直播状态监听
         mHandler.sendEmptyMessage(code);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mHandler.removeCallbacksAndMessages(null);
     }
 }

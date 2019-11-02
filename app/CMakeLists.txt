@@ -3,7 +3,8 @@ cmake_minimum_required(VERSION 3.4.1)
 
 #配置工程路径
 #set(path_project /home/wuhuannan/AndroidPrj/Live)
-set(path_project D:/AndroidStudio/Live)
+#set(path_project D:/AndroidStudio/Live)
+set(path_project /Users/huannan/AndroidPrj/Information/Live)
 
 #配置头文件的包含路径
 include_directories(${path_project}/app/src/main/cpp/include/x264)
