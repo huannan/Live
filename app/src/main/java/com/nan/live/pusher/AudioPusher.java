@@ -18,7 +18,6 @@ public class AudioPusher extends BasePusher {
     private AudioParams mAudioParams;
     private int minBufferSize;
     private AudioRecord mAudioRecord;
-    private boolean isPushing;
 
     public AudioPusher(AudioParams audioParams, PushNative pushNative) {
 

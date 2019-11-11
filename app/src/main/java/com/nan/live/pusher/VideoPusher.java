@@ -20,7 +20,6 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
     private VideoParams mVideoParams;
     private Camera mCamera;
     private byte[] buffers;
-    private boolean isPushing = false;
 
     public VideoPusher(SurfaceHolder holder, VideoParams videoParams, PushNative pushNative) {
         mPushNative = pushNative;

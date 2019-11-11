@@ -6,6 +6,8 @@ package com.nan.live.pusher;
 
 public abstract class BasePusher {
 
+    protected boolean isPushing;
+
     public abstract void startPush();
 
     public abstract void stopPush();
