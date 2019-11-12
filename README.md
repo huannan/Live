@@ -619,12 +619,12 @@ void *push_thread(void *arg) {
 
 #### RTMP引流
 
-最后，需要进行RTMP引流，我们直接使用Vitamio播放器即可，该播放器支持RTMP协议，当然我们也可以自己直接使用FFmpeg来对RTMP流进行解码播放。
+最后，需要进行RTMP引流，我们直接使用Vitamio或者IJK Player等播放器即可，该播放器支持RTMP协议，当然我们也可以自己直接使用FFmpeg来对RTMP流进行解码播放。
 
 ```java
 video_live = (VideoView) findViewById(R.id.video_live);
 
-//RTMP地址
+// RTMP地址
 String rtmpUrl = PreferenceUtils.getInstance(this).getRTMPUrl();
 video_live.setVideoPath(rtmpUrl);
 video_live.setMediaController(new MediaController(this));
@@ -638,4 +638,18 @@ video_live.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
 });
 ```
 
+### 回顾与总结
 
+最后，我们通过一张图来回顾一下：
+
+![视频直播架构](https://upload-images.jianshu.io/upload_images/2570030-e34ba03bc9e292ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+1. 本次分享只是带大家入门，而不会十分深入地展开相关知识。
+2. 多媒体开发需要很多音视频基础知识、各种多媒体协议、另外还需要会使用常见的音视频处理库。
+3. 本次只是一次直播技术的入门性质的分享，Demo本身是不完善的，通常我们项目开发都是采用成熟稳定的直播SDK比较多，比如腾讯直播SDK等等，他们功能强大而且稳定，但是一般企业级的接入都是要收费的，而且费用不便宜。
+4. 如果对音视频直播技术感兴趣的话，可以针对以下功能点学习并且对Demo进行优化：
+
+    * UI界面优化，包括推流预览界面与引流播放界面的优化
+    * 加入新的功能，比如点赞功能、主播列表页、弹幕、评论功能等
+    * 直播优化，比如音视频降噪、直播延迟优化，推流与播放分标率的切换、实时美颜功能、镜像翻转、伴音、连麦、纯音/视频推流、动态水印、回音消除、录制与回放等功能
+    * 另外还有Android本身的的一些API的使用优化，比如使用Camera2 API、优化Wake Lock的使用、权限申请优化等等
