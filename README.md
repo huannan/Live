@@ -4,7 +4,7 @@
 
 我们想看一部电影的时候，需要用到各种视频播放器来播放视频：
 
-![视频播放器](https://upload-images.jianshu.io/upload_images/2570030-c4fc35fa0df2bb4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![视频播放](https://upload-images.jianshu.io/upload_images/2570030-c3af9ec11535f3fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 视频的播放包含着很多的原理，涉及到很多音视频的基础知识。这次要讲的视频直播技术无非就是音视频知识的应用，所以我们有必要先来补充一些音视频的基础知识。
 
