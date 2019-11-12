@@ -12,6 +12,10 @@ import android.widget.EditText;
 
 import com.nan.live.utils.PreferenceUtils;
 
+/**
+ * http://itest.czie.edu.cn/index.html
+ * rtmp://172.16.47.80/live/test
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private Button btn_push;
@@ -63,6 +67,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_pull:
                 startActivity(new Intent(this, LivePullActivity.class));
+                break;
+            default:
                 break;
         }
     }
