@@ -26,7 +26,7 @@
             android:layout_weight="0"
             android:text="RTMP地址："/>
 
-        <!--android:text="rtmp://192.168.72.4/live/test"-->
+        <!--android:text="rtmp://172.16.47.80/live/test"-->
 
         <EditText
             android:id="@+id/et_rtmp_url"
@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:ems="200"
             android:inputType="textUri"
-            android:text="rtmp://www.velab.com.cn/live/test"
+            android:text="rtmp://172.16.47.80/live/test"
             android:textColor="#ff8c00"/>
     </LinearLayout>
 

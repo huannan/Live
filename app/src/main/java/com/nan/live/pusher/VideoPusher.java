@@ -7,6 +7,8 @@ import android.view.SurfaceHolder;
 
 import com.nan.live.params.VideoParams;
 
+import java.util.List;
+
 /**
  * Created by huannan on 2017/4/7.
  */
@@ -18,6 +20,7 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
     private final PushNative mPushNative;
     private SurfaceHolder mSurfaceHolder;
     private VideoParams mVideoParams;
+    @Deprecated
     private Camera mCamera;
     private byte[] buffers;
 
@@ -49,6 +52,7 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
     }
 
     @Override
+    @Deprecated
     public void surfaceCreated(SurfaceHolder holder) {
         //SurfaceView初始化完成以后，开始初始化摄像头，并且进行预览
         startPreview();
@@ -67,14 +71,24 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
     /**
      * 开始预览
      */
+    @Deprecated
     private void startPreview() {
         try {
             //SurfaceView初始化完成，可以进行预览
             mCamera = Camera.open(mVideoParams.getCameraId());
             Camera.Parameters param = mCamera.getParameters();
-            //设置预览图像的像素格式？？？？？？？？？NV-21
+
+            // 魅族机器不支持设置预览宽高，因此在这里更新mVideoParams
+
+            List<Camera.Size> supportedPreviewSizes = param.getSupportedPreviewSizes();
+//            int width = param.getPreviewSize().width;
+//            int height = param.getPreviewSize().height;
+//            mVideoParams.setWidth(width);
+//            mVideoParams.setHeight(height);
+
+            //设置预览图像的像素格式为NV-21
             param.setPreviewFormat(ImageFormat.NV21);
-            //设置预览画面宽高
+            //设置预览画面宽高，魅族机器不支持
             param.setPreviewSize(mVideoParams.getWidth(), mVideoParams.getHeight());
             //设置预览帧频，但是x264压缩的时候还是有另外一个帧频的
             //param.setPreviewFpsRange(mVideoParams.getFps() - 1, mVideoParams.getFps());
@@ -98,6 +112,7 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
     /**
      * 停止预览
      */
+    @Deprecated
     private void stopPreview() {
         if (mCamera != null) {
             mCamera.stopPreview();
@@ -109,8 +124,8 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
     /**
      * 切换摄像头
      */
+    @Deprecated
     public void switchCamera() {
-
         if (mVideoParams.getCameraId() == Camera.CameraInfo.CAMERA_FACING_BACK) {
             mVideoParams.setCameraId(Camera.CameraInfo.CAMERA_FACING_FRONT);
         } else {
@@ -129,6 +144,7 @@ public class VideoPusher extends BasePusher implements SurfaceHolder.Callback, C
      * @param camera
      */
     @Override
+    @Deprecated
     public void onPreviewFrame(byte[] data, Camera camera) {
         if (mCamera != null) {
             mCamera.addCallbackBuffer(buffers);

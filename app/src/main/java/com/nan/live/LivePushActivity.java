@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -23,11 +24,11 @@ public class LivePushActivity extends AppCompatActivity implements View.OnClickL
 
     @SuppressLint("HandlerLeak")
     private Handler mHandler = new Handler() {
+        @Override
         public void handleMessage(android.os.Message msg) {
             switch (msg.what) {
                 case PushNative.CONNECT_FAILED:
                     Toast.makeText(LivePushActivity.this, "连接失败", Toast.LENGTH_SHORT).show();
-                    //Log.d("jason", "连接失败..");
                     break;
                 case PushNative.INIT_FAILED:
                     Toast.makeText(LivePushActivity.this, "初始化失败", Toast.LENGTH_SHORT).show();
@@ -42,6 +43,7 @@ public class LivePushActivity extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_live_push);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         init();
     }
 

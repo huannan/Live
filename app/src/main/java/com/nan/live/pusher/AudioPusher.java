@@ -20,7 +20,6 @@ public class AudioPusher extends BasePusher {
     private AudioRecord mAudioRecord;
 
     public AudioPusher(AudioParams audioParams, PushNative pushNative) {
-
         mAudioParams = audioParams;
         mPushNative = pushNative;
 
@@ -36,7 +35,6 @@ public class AudioPusher extends BasePusher {
 
     @Override
     public void startPush() {
-
         mPushNative.setAudioOptions(
                 mAudioParams.getSampleRateInHz(),
                 mAudioParams.getChannel());

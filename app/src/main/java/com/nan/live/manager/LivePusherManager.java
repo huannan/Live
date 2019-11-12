@@ -36,7 +36,6 @@ public class LivePusherManager implements SurfaceHolder.Callback {
     }
 
     private void init(SurfaceHolder holder) {
-
         mPushNative = new PushNative();
 
         //拿到窗口信息，但是这样画面会太大了，因此采用较低的分辨率
@@ -50,8 +49,8 @@ public class LivePusherManager implements SurfaceHolder.Callback {
         holder.addCallback(this);
 
         //初始化视频采集与推流
-        //mVideoParams = new VideoParams(480, 320, Camera.CameraInfo.CAMERA_FACING_BACK);
-        mVideoParams = new VideoParams(width, height, Camera.CameraInfo.CAMERA_FACING_BACK);
+        mVideoParams = new VideoParams(176, 144, Camera.CameraInfo.CAMERA_FACING_BACK);
+//        mVideoParams = new VideoParams(width, height, Camera.CameraInfo.CAMERA_FACING_BACK);
         mVideoPusher = new VideoPusher(holder, mVideoParams, mPushNative);
 
         //初始化音频采集与推流

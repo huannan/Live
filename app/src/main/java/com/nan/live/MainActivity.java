@@ -47,15 +47,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void init() {
-
         btn_push.setOnClickListener(this);
         btn_pull.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
-
         //保存RTMP的地址
         String rtmpUrl = et_rtmp_url.getText().toString().trim();
         PreferenceUtils.getInstance(this).setRTMPUrl(rtmpUrl);
