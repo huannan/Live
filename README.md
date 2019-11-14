@@ -1,3 +1,7 @@
+### 直播技术从入门到放弃
+
+![直播技术从入门到放弃](https://upload-images.jianshu.io/upload_images/2570030-479d0badf9050b98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 ### 音视频基础知识
 
 #### 从一个电影播放说起
